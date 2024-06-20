@@ -1,22 +1,22 @@
 import React from "react";
 import "./NavBar.css";
 
-function NavBar({ homePageLink, aboutPageLink, contactPageLink }) {
+function NavBar() {
   return (
     <nav className="nav">
       <ul className="nav-list">
         <li className="nav-item">
-          <a href={homePageLink} className="nav-link">
+          <a href="/" className="nav-link">
             Home
           </a>
         </li>
         <li className="nav-item">
-          <a href={aboutPageLink} className="nav-link">
+          <a href="/about" className="nav-link">
             About
           </a>
         </li>
         <li className="nav-item">
-          <a href={contactPageLink} className="nav-link">
+          <a href="/contact" className="nav-link">
             Contact
           </a>
         </li>
