@@ -1,23 +1,14 @@
 import "./App.css";
-import HomePage from "./session30/liveCode/home";
-// import NavBar from "./session30/examples/NavBar";
-// import UserItem from "./session30/examples/UserItem";
+// import LoginForm from "./session31/liveCode/LoginForm";
+// import { BadCounter, GoodCounter } from "./session31/examples/Counter";
+// import ToggleVisibility from "./session31/examples/ToggleVisibility";
+// import Form from "./session31/examples/Form";
+import ToggleTheme from "./session31/examples/ToggleTheme";
 
 function App() {
   return (
-    <div>
-      {/* <NavBar
-        homePageLink="/"
-        aboutPageLink="/about"
-        contactPageLink="/contact"
-      />
-
-      <div className="app-content">
-        <UserItem name="Jane Doe" email="jane.doe@gmail.com" />
-        <UserItem name="Another Name" email="test@gmail.com" />
-      </div> */}
-
-      <HomePage pageTitle="Valoare din Props" />
+    <div className="app-content">
+      <ToggleTheme />
     </div>
   );
 }
