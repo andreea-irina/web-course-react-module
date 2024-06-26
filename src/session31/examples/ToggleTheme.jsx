@@ -9,9 +9,25 @@ function ToggleTheme() {
   };
 
   return (
-    <div className={theme === "light" ? "light-theme" : "dark-theme"}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        borderRadius: "5px",
+        padding: "10px",
+        minHeight: "200px",
+      }}
+      className={theme === "light" ? "light-theme" : "dark-theme"}
+    >
       <button onClick={handleToggleTheme}>Toggle Theme</button>
-      <p>The current theme is {theme}.</p>
+      <p
+        style={{
+          marginTop: "auto",
+        }}
+      >
+        The current theme is {theme}.
+      </p>
     </div>
   );
 }

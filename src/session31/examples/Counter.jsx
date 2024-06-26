@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function GoodCounter() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(10);
 
   return (
     <div>

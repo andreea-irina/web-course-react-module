@@ -7,6 +7,7 @@ function Form() {
   });
 
   const handleInputChange = (e) => {
+    console.log("onChange");
     const { name, value } = e.target;
     setFormState((prevState) => ({
       ...prevState, // Copiaza toate valorile din state-ul anterior
@@ -15,12 +16,20 @@ function Form() {
   };
 
   return (
-    <form>
+    <form
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "10px",
+      }}
+    >
       <input
         type="text"
         name="username"
         value={formState.username}
-        onChange={handleInputChange}
+        onChange={handleInputChange} // <element>.addEventListener("input", <functie>)
+        onBlur={() => console.log("onBlur")} // <element>.addEventListener("change", <functie>)
         placeholder="Username"
       />
       <input
