@@ -1,0 +1,11 @@
+.driver-card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 20px;
+}
+
+.driver-card h3,
+.driver-card p {
+  margin: 0px;
+}
