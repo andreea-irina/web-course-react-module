@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
-import Header from "./session35/examples/components/Header";
 import Users from "./session35/examples/pages/Users";
 import User from "./session35/examples/pages/User";
 import Home from "./session35/examples/pages/Home";
@@ -14,9 +13,10 @@ function App() {
     <div className="app-content">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/users/:id" element={<User />} />
         <Route path="/about" element={<About />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/users/:userId" element={<User />} />
+
         <Route path="*" element={<Page404 />} />
       </Routes>
     </div>

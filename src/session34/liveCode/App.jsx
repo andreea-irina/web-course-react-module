@@ -21,10 +21,15 @@ function LiveCodeApp() {
     getUsers();
   }, []);
 
+  // Pas 5: creeaza o functie care adauga un user la lista
+  function handleAdd(newUser) {
+    setUsers([...users, newUser]);
+  }
+
   // Pas 4: afisam datele de la API
   return (
     <div className="app-content">
-      <AddUserForm />
+      <AddUserForm handleAdd={handleAdd} />
 
       <UserList users={users} />
     </div>
