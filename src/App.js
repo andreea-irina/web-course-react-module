@@ -1,32 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+
 import "./App.css";
-import UserList from "./session34/examples/UserList";
-import UserAddForm from "./session34/examples/UserAddForm";
+import Header from "./session35/examples/components/Header";
+import Users from "./session35/examples/pages/Users";
+import User from "./session35/examples/pages/User";
+import Home from "./session35/examples/pages/Home";
+import About from "./session35/examples/pages/About";
+import Page404 from "./session35/examples/pages/Page404";
 
 function App() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((data) => setUsers(data));
-  }, []);
-
-  const addUser = (user) => {
-    setUsers([...users, user]);
-  };
-
-  const deleteUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
-  };
-
   return (
     <div className="app-content">
-      <div style={{ display: "flex", gap: "30px" }}>
-        <UserList users={users} onDeleteUser={deleteUser} />
-
-        <UserAddForm onAddUser={addUser} />
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/users/:id" element={<User />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<Page404 />} />
+      </Routes>
     </div>
   );
 }
