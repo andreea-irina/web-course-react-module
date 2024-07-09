@@ -1,13 +1,32 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
-// import ConditionalRendering from "./session32/liveCode/ConditionalRendering";
-// import Lists from "./session32/liveCode/Lists";
-// import PasswordValidator from "./session31/homework/PasswordValidator";
-import DriversList from "./session32/examples/DriversList";
+import UserList from "./session34/examples/UserList";
+import UserAddForm from "./session34/examples/UserAddForm";
 
 function App() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
+  }, []);
+
+  const addUser = (user) => {
+    setUsers([...users, user]);
+  };
+
+  const deleteUser = (id) => {
+    setUsers(users.filter((user) => user.id !== id));
+  };
+
   return (
     <div className="app-content">
-      <DriversList />
+      <div style={{ display: "flex", gap: "30px" }}>
+        <UserList users={users} onDeleteUser={deleteUser} />
+
+        <UserAddForm onAddUser={addUser} />
+      </div>
     </div>
   );
 }
