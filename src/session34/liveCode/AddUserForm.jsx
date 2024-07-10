@@ -7,8 +7,9 @@ import {
   FormLabel,
 } from "react-bootstrap";
 
-function AddUserForm() {
+function AddUserForm(props) {
   const [name, setName] = useState("");
+  const { handleAdd } = props;
 
   const handleSubmit = (event) => {
     // Fix pentru a nu se mai da refresh la pagina cand userul da click pe "submit"\
@@ -23,7 +24,7 @@ function AddUserForm() {
       },
     })
       .then((respone) => respone.json())
-      .then((data) => console.log(data));
+      .then((data) => handleAdd(data));
   };
 
   return (
