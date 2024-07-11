@@ -12,3 +12,9 @@
 .column > h4 {
   flex-grow: 1;
 }
+
+.pageTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

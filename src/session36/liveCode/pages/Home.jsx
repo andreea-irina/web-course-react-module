@@ -1,14 +1,13 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useContext, useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 
-import { CartContext } from "../store/Cart/context";
-import { cartReducer, initialState } from "../store/Cart/reducer";
-import { addToCart } from "../store/Cart/actions";
 import styles from "./Home.module.css";
+import { changeTheme } from "../store/Theme/actions";
+import { ThemeContext } from "../store/Theme/context";
 
 function Home() {
+  const { state, dispatch } = useContext(ThemeContext);
   const [products, setProducts] = React.useState([]);
-  const [state, dispatch] = useReducer(cartReducer, initialState);
 
   useEffect(() => {
     fetch("https://stephen-king-api.onrender.com/api/books")
@@ -16,30 +15,46 @@ function Home() {
       .then((data) => setProducts(data.data.slice(0, 4)));
   }, []);
 
+  const handleThemeChange = () => {
+    let newTheme = "";
+    if (state.theme === "light") {
+      newTheme = "dark";
+    } else {
+      newTheme = "light";
+    }
+
+    dispatch(changeTheme(newTheme));
+  };
+
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
-      <Container>
+    <Container>
+      <div className={styles.pageTitle}>
         <h1>
           <b>Home</b>
         </h1>
 
-        <br />
+        <Button
+          onClick={handleThemeChange}
+          variant={state.theme === "light" ? "dark" : "light"}
+        >
+          Change theme
+        </Button>
+      </div>
 
-        <Row className={styles.row}>
-          {products.map((product) => (
-            <Col className={styles.column} key={product.id}>
-              <h4>{product.Title}</h4>
-              <h6>
-                <i>{product.Year}</i>
-              </h6>
-              <Button onClick={() => dispatch(addToCart(product))}>
-                Add to Cart
-              </Button>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </CartContext.Provider>
+      <br />
+
+      <Row className={styles.row}>
+        {products.map((product) => (
+          <Col className={styles.column} key={product.id}>
+            <h4>{product.Title}</h4>
+            <h6>
+              <i>{product.Year}</i>
+            </h6>
+            <Button>Add to Cart</Button>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
 

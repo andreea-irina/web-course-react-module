@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 
 import styles from "./Header.module.css";
+import { ThemeContext } from "../../liveCode/store/Theme/context";
 
 function Header() {
+  const { state } = useContext(ThemeContext);
+
   return (
-    <Navbar className={styles.navbar} bg="dark" variant="dark">
+    <Navbar className={styles.navbar} bg={state.theme} variant={state.theme}>
       <Navbar.Brand as={Link} to="/">
         Stephen King Books
       </Navbar.Brand>
