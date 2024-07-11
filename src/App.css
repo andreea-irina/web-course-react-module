@@ -1,11 +1,16 @@
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .app-content {
   height: 100%;
-  max-width: 1090px;
+  width: 1090px;
   margin: 0 auto;
   padding: 20px;
+}
+
+@media screen and (max-width: 1090px) {
+  .app-content {
+    width: 100%;
+  }
 }
