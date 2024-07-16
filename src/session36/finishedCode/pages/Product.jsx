@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Button, Container } from "react-bootstrap";
+
 import { CartContext } from "../store/Cart/context";
-import { useReducer } from "react";
-import { cartReducer, initialState } from "../store/Cart/reducer";
 import { addToCart } from "../store/Cart/actions";
 
 function Product() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [state, dispatch] = useReducer(cartReducer, initialState);
+  const { dispatch } = useContext(CartContext);
 
   useEffect(() => {
-    fetch(`https://api.cheapshark.com/api/1.0/deals?id=${id}`)
+    fetch(`https://stephen-king-api.onrender.com/api/book/${id}`)
       .then((response) => response.json())
-      .then((data) => setProduct(data));
+      .then((data) => setProduct(data.data));
   }, [id]);
 
   if (!product) {
@@ -21,14 +21,15 @@ function Product() {
   }
 
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
-      <div>
-        <h1>{product.title}</h1>
-        <button onClick={() => dispatch(addToCart(product))}>
-          Add to Cart
-        </button>
-      </div>
-    </CartContext.Provider>
+    <Container>
+      <h1>{product.Title}</h1>
+      <h4>
+        <i>{product.Year}</i> - {product.Publisher}
+      </h4>
+      <h6>{product.Pages} pages</h6>
+      <p>{product.ISBN}</p>
+      <Button onClick={() => dispatch(addToCart(product))}>Add to Cart</Button>
+    </Container>
   );
 }
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 
 import styles from "./Header.module.css";
-import { ThemeContext } from "../../liveCode/store/Theme/context";
+import { ThemeContext } from "../store/Theme/context";
 
 function Header() {
   const { state } = useContext(ThemeContext);
