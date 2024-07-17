@@ -6,18 +6,21 @@ import Products from "./pages/Products";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import { ThemeProvider } from "./store/Theme/context";
+import { CartProvider } from "./store/Cart/context";
 
 function LiveApp() {
   return (
     <ThemeProvider>
-      <Header />
+      <CartProvider>
+        <Header />
 
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/product/:id" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </CartProvider>
     </ThemeProvider>
   );
 }

@@ -7,7 +7,7 @@ import LiveApp from "./session36/liveCode/LiveApp";
 function App() {
   return (
     <div className="app-content">
-      <FinishedApp />
+      <LiveApp />
     </div>
   );
 }

@@ -4,9 +4,12 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import styles from "./Home.module.css";
 import { changeTheme } from "../store/Theme/actions";
 import { ThemeContext } from "../store/Theme/context";
+import { CartContext } from "../store/Cart/context";
+import { addToCartAction } from "../store/Cart/actions";
 
 function Home() {
   const { state, dispatch } = useContext(ThemeContext);
+  const { cartDispatch } = useContext(CartContext);
   const [products, setProducts] = React.useState([]);
 
   useEffect(() => {
@@ -24,6 +27,10 @@ function Home() {
     }
 
     dispatch(changeTheme(newTheme));
+  };
+
+  const handleAddToCart = (book) => {
+    cartDispatch(addToCartAction(book));
   };
 
   return (
@@ -50,7 +57,9 @@ function Home() {
             <h6>
               <i>{product.Year}</i>
             </h6>
-            <Button>Add to Cart</Button>
+            <Button onClick={() => handleAddToCart(product)}>
+              Add to Cart
+            </Button>
           </Col>
         ))}
       </Row>
