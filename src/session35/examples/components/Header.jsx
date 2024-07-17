@@ -5,7 +5,7 @@ import styles from "./Header.module.css";
 
 function Header() {
   return (
-    <header className={styles.color + " " + "mt-2"}>
+    <header className={styles.color}>
       <nav>
         <ul>
           <li>
