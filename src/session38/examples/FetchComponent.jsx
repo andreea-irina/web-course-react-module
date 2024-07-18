@@ -17,8 +17,6 @@ function FetchComponent() {
     return <div>Error: {error.message}</div>;
   }
 
-  console.log(data);
-
   return (
     <Container>
       <h1>Users</h1>

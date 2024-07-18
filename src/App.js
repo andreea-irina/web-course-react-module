@@ -1,14 +1,13 @@
 import React from "react";
 
 import "./App.css";
-import LiveApp from "./session36/homework/LiveApp";
-// import LocalStorageComponent from "./session38/examples/LocalStorageComponent";
-// import FetchComponent from "./session38/examples/FetchComponent";
+import FetchExample from "./session38/liveCode/FetchExample";
+import LocalStorageExample from "./session38/liveCode/LocalStorageExample";
 
 function App() {
   return (
     <div className="app-content">
-      <LiveApp />
+      <LocalStorageExample />
     </div>
   );
 }
