@@ -1,15 +1,11 @@
 import React from "react";
 
 import "./App.css";
-import FinishedApp from "./session36/finishedCode/FinishedApp";
-import LiveApp from "./session36/liveCode/LiveApp";
+// import LocalStorageComponent from "./session38/examples/LocalStorageComponent";
+// import FetchComponent from "./session38/examples/FetchComponent";
 
 function App() {
-  return (
-    <div className="app-content">
-      <LiveApp />
-    </div>
-  );
+  return <div className="app-content"></div>;
 }
 
 export default App;
