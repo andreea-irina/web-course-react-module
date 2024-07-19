@@ -1,13 +1,13 @@
 import React from "react";
 
 import "./App.css";
-import FinishedApp from "./session36/finishedCode/FinishedApp";
-import LiveApp from "./session36/liveCode/LiveApp";
+import FetchExample from "./session38/liveCode/FetchExample";
+import LocalStorageExample from "./session38/liveCode/LocalStorageExample";
 
 function App() {
   return (
     <div className="app-content">
-      <LiveApp />
+      <LocalStorageExample />
     </div>
   );
 }
