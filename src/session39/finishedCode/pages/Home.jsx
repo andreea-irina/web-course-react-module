@@ -19,7 +19,12 @@ export default function HomePage() {
     error: currentError,
   } = useFetch("https://api.n.exchange/en/api/v1/price/BTCETH/latest/");
 
-  if (historyLoading || currentLoading) return <Spinner />;
+  if (historyLoading || currentLoading)
+    return (
+      <Container className="d-flex align-items-center justify-content-center">
+        <Spinner />
+      </Container>
+    );
 
   if (historyError) return <div>Error: {historyError.message}</div>;
   if (currentError) return <div>Error: {currentError.message}</div>;
