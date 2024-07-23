@@ -18,7 +18,7 @@ const useFetch = (url) => {
         }
         const result = await response.json();
         if (isMounted) {
-          setData(result.prices);
+          setData(result);
           setLoading(false);
         }
       } catch (error) {

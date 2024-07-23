@@ -1,14 +1,20 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
-import FetchExample from "./session38/liveCode/FetchExample";
-import LocalStorageExample from "./session38/liveCode/LocalStorageExample";
+import { ThemeProvider } from "./session39/finishedCode/store/Theme/context";
+import HomePage from "./session39/finishedCode/pages/Home";
+import Layout from "./session39/finishedCode/components/Layout";
 
 function App() {
   return (
-    <div className="app-content">
-      <LocalStorageExample />
-    </div>
+    <ThemeProvider>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </Layout>
+    </ThemeProvider>
   );
 }
 
