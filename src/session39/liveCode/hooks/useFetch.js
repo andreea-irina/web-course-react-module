@@ -18,7 +18,7 @@ const useFetch = (url) => {
         }
         const result = await response.json();
         if (isMounted) {
-          setData(result.prices);
+          setData(result);
           setLoading(false);
         }
       } catch (error) {
@@ -31,6 +31,7 @@ const useFetch = (url) => {
 
     fetchData();
 
+    // Cleanup function care se va rula cand componenta este unmounted
     return () => {
       isMounted = false;
     };

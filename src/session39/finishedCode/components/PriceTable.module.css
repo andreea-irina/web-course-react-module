@@ -1,0 +1,25 @@
+.priceTable {
+  margin-top: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  max-width: 700px;
+}
+
+.priceTable thead {
+  color: #495057;
+  padding: 1em;
+  border-bottom: 1px solid #dee2e6;
+  height: 3em;
+}
+
+.priceTable th,
+.priceTable td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.badge {
+  font-size: 1em;
+  padding: 0.5em 1em;
+  border-radius: 12px;
+}

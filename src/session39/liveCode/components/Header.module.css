@@ -1,0 +1,13 @@
+.navbar {
+  padding: 8px 20px !important;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  margin: 0 auto;
+}
+
+.themeButton {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50% !important;
+}
