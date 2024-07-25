@@ -3,10 +3,10 @@ import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import { ThemeProvider } from "./session40/finishedCode/store/Theme/context";
+import { DashboardProvider } from "./session40/finishedCode/store/Dashboard/context";
 import HomePage from "./session40/finishedCode/pages/Home";
 import Layout from "./session40/finishedCode/components/Layout";
-import BitcoinPage from "./session40/finishedCode/pages/Bitcoin";
-import { DashboardProvider } from "./session40/finishedCode/store/Dashboard/context";
+import CoinPage from "./session40/finishedCode/pages/Coin";
 
 function App() {
   return (
@@ -18,7 +18,8 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/bitcoin" element={<BitcoinPage />} />
+            <Route path="/bitcoin" element={<CoinPage coin="BTC" />} />
+            <Route path="/ethereum" element={<CoinPage coin="ETH" />} />
           </Routes>
         </Layout>
       </DashboardProvider>

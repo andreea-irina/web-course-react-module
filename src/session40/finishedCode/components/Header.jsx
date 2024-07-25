@@ -43,6 +43,16 @@ export default function Header() {
               BTC
             </Nav.Link>
 
+            <Nav.Link
+              as={Link}
+              to="/ethereum"
+              className={
+                location.pathname.includes("ethereum") ? "text-primary" : ""
+              }
+            >
+              ETH
+            </Nav.Link>
+
             <Nav.Link as={Link} to="/dashboard">
               My Dashboard {`(${dashboardState.coins.length})`}
             </Nav.Link>

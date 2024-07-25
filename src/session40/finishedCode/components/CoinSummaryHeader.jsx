@@ -24,6 +24,7 @@ export default function CoinSummaryHeader({ coin, data }) {
   const subTextColor = theme === "light" ? "secondary" : "light";
 
   const { rate, market, created_on } = data;
+  const { url, label, place } = getCoinData(coin);
   const ratePrice = parseFloat(rate).toLocaleString();
   const change = -1185; // Static data
   const changePercentage = -1.81; // Static data
@@ -32,13 +33,13 @@ export default function CoinSummaryHeader({ coin, data }) {
     <Container className={`text-${textColor} mb-4`}>
       <Row className="align-items-center mb-4">
         <Col xs="auto" className="mb-2">
-          <img height={100} src={getCoinImage(coin)} alt={coin} />
+          <img height={100} src={url} alt={coin} />
         </Col>
 
         <Col>
-          <h1 className="mb-0">Bitcoin</h1>
+          <h1 className="mb-0">{label}</h1>
           <Badge bg={textColor} text={theme}>
-            #1
+            #{place}
           </Badge>
         </Col>
 
@@ -78,13 +79,25 @@ export default function CoinSummaryHeader({ coin, data }) {
   );
 }
 
-const getCoinImage = (coin) => {
+const getCoinData = (coin) => {
   switch (coin) {
     case "BTC": {
-      return "https://s3-symbol-logo.tradingview.com/crypto/XTVCBTC--big.svg";
+      return {
+        url: "https://s3-symbol-logo.tradingview.com/crypto/XTVCBTC--big.svg",
+        label: "Bitcoin",
+        place: "1",
+      };
+    }
+
+    case "ETH": {
+      return {
+        url: "https://s3-symbol-logo.tradingview.com/crypto/XTVCETH--big.svg",
+        label: "Ethereum",
+        place: "2",
+      };
     }
 
     default:
-      return "";
+      return { url: "", label: "", place: "" };
   }
 };
