@@ -4,18 +4,22 @@ import { Container, Row, Col, Button, Badge } from "react-bootstrap";
 import { ThemeContext } from "../store/Theme/context";
 import { DashboardContext } from "../store/Dashboard/context";
 import { addCoin, removeCoin } from "../store/Dashboard/actions";
+import { AlertContext } from "../store/Alert/context";
 
 export default function CoinSummaryHeader({ coin, data }) {
   const { state: themeState } = useContext(ThemeContext);
   const { state: dashboardState, dispatch: dashboardDispatch } =
     useContext(DashboardContext);
+  const { addAlert } = useContext(AlertContext);
 
   const isCoinInDashboard = dashboardState.coins.includes(coin);
   const handleDashboardAction = () => {
     if (isCoinInDashboard) {
       dashboardDispatch(removeCoin(coin));
+      addAlert("Coin removed from dashboard", "danger");
     } else {
       dashboardDispatch(addCoin(coin));
+      addAlert("Coin added to dashboard", "success");
     }
   };
 
